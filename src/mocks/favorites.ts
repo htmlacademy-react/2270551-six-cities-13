@@ -1,4 +1,4 @@
-import { Card } from '../types';
+import { Card } from '../components/types/offer-types';
 
 const FavoritesList: Card[] = [
   {

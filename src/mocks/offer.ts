@@ -1,4 +1,4 @@
-import { OfferCard } from '../types';
+import { OfferCard } from '../components/types/offer-types';
 
 const OfferList: OfferCard[] = [
   {

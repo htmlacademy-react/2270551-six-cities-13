@@ -1,31 +1,21 @@
-import { CITIES } from './const';
-
-export type CityNames = (typeof CITIES)[number];
-
-type User = {
-  name: string;
-  avatarUrl: string;
-  isPro: boolean;
-};
-
-type Location = {
-  latitude: number;
-  longitude: number;
-  zoom: number;
-};
-
-type City = {
-  name: string;
-  location: Location;
-};
-
 type Host = {
   name: string;
   avatarUrl: string;
   isPro: boolean;
 };
 
-export type Card = {
+export type Location = {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+}
+
+export type City = {
+  name: string;
+  location: Location;
+}
+
+export type Offer = {
   id: string;
   title: string;
   type: string;
@@ -35,22 +25,14 @@ export type Card = {
   isFavorite: boolean;
   isPremium: boolean;
   rating: number;
-  previewImage?: string;
-};
+  previewImage: string;
+}
 
-export type OfferCard = {
+export type DetailedOffer = Offer & {
   description: string;
   bedrooms: number;
   goods: string[];
   host: Host;
   images: string[];
   maxAdults: number;
-} & Card;
-
-export type Review = {
-  id: string;
-  date: string;
-  user: User;
-  comment: string;
-  rating: number;
-};
+}
