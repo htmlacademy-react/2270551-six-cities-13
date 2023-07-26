@@ -1,7 +1,7 @@
 /*Компонент*/
-import {Offer} from '../../types/offer-types';
+import {Offer} from '../../components/types/offer-types.ts';
 import HeaderFull from '../../components/header/header-full';
-import OffersList from '../../components/offers-list/offers-list';
+import OffersList from '../../components/offer-list/offer-list';
 
 type FavoritesProps = {
   offers: Offer[];
