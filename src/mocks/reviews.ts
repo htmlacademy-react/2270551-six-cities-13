@@ -1,4 +1,4 @@
-import {Review} from '../types/review-types';
+import {Review} from '../components/types/review-types.ts';
 
 export const reviews: Review[] = [
   {
