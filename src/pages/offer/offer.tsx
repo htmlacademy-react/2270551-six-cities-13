@@ -1,8 +1,8 @@
 /*Компонент*/
 
 import {useParams} from 'react-router-dom';
-import {Review} from '../../types/review-types';
-import {DetailedOffer} from '../../types/offer-types';
+import {Review} from '../../components/types/review-types';
+import {DetailedOffer} from '../../components/types/offer-types';
 import HeaderFull from '../../components/header/header-full';
 import ReviewSendForm from '../../components/review-form/review-form';
 
