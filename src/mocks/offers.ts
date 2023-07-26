@@ -1,5 +1,5 @@
-import {Offer} from '../types/offer-types';
-import {DetailedOffer} from '../types/offer-types';
+import {Offer} from '../components/types/offer-types';
+import {DetailedOffer} from '../components/types/offer-types';
 
 export const offers: Offer[] = [
   {
