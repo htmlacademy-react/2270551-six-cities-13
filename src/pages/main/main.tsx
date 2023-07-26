@@ -1,8 +1,8 @@
 /*Компонент главной страницы*/
 import {useState} from 'react';
-import {City, Offer} from '../../types/offer-types';
+import {City, Offer} from '../../components/types/offer-types';
 import HeaderFull from '../../components/header/header-full';
-import OffersList from '../../components/offers-list/offers-list';
+import OffersList from '../../components/offer-list/offer-list';
 import Map from '../../components/map/map';
 
 type MainProps = {
