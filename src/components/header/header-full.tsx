@@ -31,3 +31,4 @@ function HeaderFull(): JSX.Element {
 }
 
 export default HeaderFull;
+
