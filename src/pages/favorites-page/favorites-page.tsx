@@ -1,5 +1,5 @@
 /*Компонент*/
-import {Offer} from '../../components/types/offer-types.ts';
+import {Offer} from '../../types/offer-types.ts';
 import HeaderFull from '../../components/header/header-full';
 import OffersList from '../../components/offer-list/offer-list';
 
