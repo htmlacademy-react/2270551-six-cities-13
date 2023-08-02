@@ -136,7 +136,7 @@ function OfferPage({city, offers, detailedOffers, reviews}: OfferProps): JSX.Ele
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <OffersList type='near-places' offers={offers.slice(0, 3)} onOfferCardHover={handleOfferCardHover}/>
+            <OffersList type ='near-places' offers={offers.slice(0, 3)} onOfferCardHover={handleOfferCardHover}/>
           </section>
         </div>
       </main>

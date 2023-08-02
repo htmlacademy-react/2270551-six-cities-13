@@ -30,7 +30,7 @@ function FavoritesPage({offers}: FavoritesProps): JSX.Element {
                     </a>
                   </div>
                 </div>
-                <OffersList offers={favoriteOffers} onOfferCardHover={() => ''} type='favorites'/>
+                <OffersList offers={favoriteOffers} onOfferCardHover = {() => ''} type='favorites'/>
               </li>
             </ul>
           </section>
