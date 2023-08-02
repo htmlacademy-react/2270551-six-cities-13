@@ -41,7 +41,7 @@ function App({offersCount, city, offers, detailedOffers, reviews}: AppProps): JS
           />
           <Route
             path={`${AppRoute.Offer}/:id`}
-            element={<OfferPage detailedOffers={detailedOffers} reviews={reviews}/>}
+            element={<OfferPage city={city} offers={offers} detailedOffers={detailedOffers} reviews={reviews}/>}
           />
           <Route
             path={AppRoute.Favorites}
