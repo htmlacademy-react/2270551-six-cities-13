@@ -1,9 +1,5 @@
 /*Константы*/
 
-const enum Settings {
-  OFFERS = 312,
-}
-
 enum AppRoute {
   Main = '/',
   Login = '/login',
@@ -17,11 +13,18 @@ enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-const URL_MARKER_DEFAULT =
-  'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
+const CITIES = [
+  'Paris',
+  'Cologne',
+  'Brussels',
+  'Amsterdam',
+  'Hamburg',
+  'Dusseldorf'
+];
 
-const URL_MARKER_CURRENT =
-  'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
+const URL_MARKER_DEFAULT = '../img/pin.svg';
 
-export{Settings, AppRoute, AuthorizationStatus, URL_MARKER_DEFAULT, URL_MARKER_CURRENT};
+const URL_MARKER_CURRENT = '../img/pin-active.svg';
+
+export {AppRoute, AuthorizationStatus, CITIES, URL_MARKER_DEFAULT, URL_MARKER_CURRENT};
 
