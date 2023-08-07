@@ -7,7 +7,7 @@ import {City, Offer} from '../../types/offer-types';
 import HeaderFull from '../../components/header/header-full';
 import CitiesList from '../../components/cities-list/cities-list';
 import OffersList from '../../components/offer-list/offer-list';
-//import PlaceSort from '../../components/sort-options/sort-options';
+import PlaceSort from '../../components/sort-options/sort-options';
 import Map from '../../components/map/map';
 
 type MainProps = {
@@ -50,7 +50,7 @@ function MainPage({city}: MainProps): JSX.Element {
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{sortOffers.length} places to stay in {activeCity}</b>
-
+              <PlaceSort />
               <OffersList type='cities' offers={sortOffers} onOfferCardHover={handleOfferCardHover}/>
             </section>
             <div className="cities__right-section">
