@@ -4,6 +4,28 @@ type Host = {
   isPro: boolean;
 };
 
+export type Offers = Offer[];
+
+/*export type Offer = {
+  bedrooms: number;
+  city: {
+    location: Location;
+    name: string;
+  };
+  description: string;
+  goods: string[];
+  id: number;
+  images: string[];
+  isPremium: boolean;
+  location: Location;
+  maxAdults: number;
+  previewImage: string;
+  price: number;
+  rating: number;
+  title: string;
+  type: string;
+}; */
+
 export type Location = {
   latitude: number;
   longitude: number;
@@ -14,6 +36,15 @@ export type City = {
   name: string;
   location: Location;
 }
+
+export type OfferId = {
+  id: number;
+};
+
+export type LocationMap = {
+  id: string;
+  location: Location;
+};
 
 export type Offer = {
   id: string;
