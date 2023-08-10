@@ -4,7 +4,7 @@ type Host = {
   isPro: boolean;
 };
 
-//export type Offers = Offer[];
+export type Offers = Offer[];
 
 /*export type Offer = {
   bedrooms: number;
