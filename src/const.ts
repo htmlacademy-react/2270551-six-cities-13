@@ -29,6 +29,9 @@ export enum NameSpace {
   Comment = 'COMMENT',
 }
 
+export const MAX_RATING = 5;
+export const MULTIPLIER_FOR_RATING = 100 / MAX_RATING;
+
 export enum CityName {
   Paris = 'Paris',
   Cologne = 'Cologne',
