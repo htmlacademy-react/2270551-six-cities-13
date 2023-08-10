@@ -1,26 +1,29 @@
 /*Компонент*/
 
 import {useState} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, Navigate} from 'react-router-dom';
 import {Helmet} from 'react-helmet-async';
+import {useAppSelector} from '../../hooks';
 import {Review} from '../../types/review-types';
-import {City, Offer, DetailedOffer} from '../../types/offer-types';
+import {Offer, DetailedOffer} from '../../types/offer-types';
 import Map from '../../components/map/map';
 import HeaderFull from '../../components/header/header-full';
+import OffersList from '../../components/offer-list/offer-list';
 import ReviewList from '../../components/review-list/review-list';
 import ReviewSendForm from '../../components/review-form/review-form';
-import OffersList from '../../components/offer-list/offer-list';
+
+const NEARBY_OFFERS_COUNT = 3;
 
 type OfferProps = {
-  city: City;
   offers: Offer[];
   detailedOffers: DetailedOffer[];
   reviews: Review[];
 }
 
-function OfferPage({city, offers, detailedOffers, reviews}: OfferProps): JSX.Element | null {
+function OfferPage({offers, detailedOffers, reviews}: OfferProps): JSX.Element | null {
   const params = useParams();
   const detailedOffer = detailedOffers.find((elem) => elem.id === params.id);
+  const activeCity = useAppSelector((state) => state.city);
 
   const [selectedPoint, setSelectedPoint] = useState<Offer | undefined>(
     undefined
@@ -37,7 +40,9 @@ function OfferPage({city, offers, detailedOffers, reviews}: OfferProps): JSX.Ele
   };
 
   if (!detailedOffer){
-    return null;
+    return (
+      <Navigate to='/Page404'></Navigate>
+    );
   }
 
   return (
@@ -130,13 +135,13 @@ function OfferPage({city, offers, detailedOffers, reviews}: OfferProps): JSX.Ele
             </div>
           </div>
           <section className="offer__map map">
-            <Map city={city} points={offers.slice(0, 3)} selectedPoint={selectedPoint}/>
+            <Map city={activeCity} points={offers.slice(0, NEARBY_OFFERS_COUNT)} selectedPoint={selectedPoint}/>
           </section>
         </section>
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <OffersList type ='near-places' offers={offers.slice(0, 3)} onOfferCardHover={handleOfferCardHover}/>
+            <OffersList type='near-places' offers={offers.slice(0, NEARBY_OFFERS_COUNT)} onOfferCardHover={handleOfferCardHover}/>
           </section>
         </div>
       </main>

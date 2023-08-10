@@ -1,4 +1,10 @@
-import { AxiosInstance } from 'axios';
+import {store} from '../store';
+
+export type State = ReturnType<typeof store.getState>;
+
+export type AppDispatch = typeof store.dispatch;
+
+/*import { AxiosInstance } from 'axios';
 import {store} from '../store';
 import { AuthorizationStatus, CITIES, SORT_ITEMS } from '../const';
 
@@ -77,4 +83,4 @@ export type AppProcess = {
   activeCity: CityNames;
   activeSort: SortNames;
   error: string | null;
-};
+};*/

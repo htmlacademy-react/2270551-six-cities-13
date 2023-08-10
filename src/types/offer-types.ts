@@ -4,7 +4,7 @@ type Host = {
   isPro: boolean;
 };
 
-export type Offers = Offer[];
+//export type Offers = Offer[];
 
 /*export type Offer = {
   bedrooms: number;
@@ -37,14 +37,14 @@ export type City = {
   location: Location;
 }
 
-export type OfferId = {
+/*export type OfferId = {
   id: number;
-};
+};*/
 
-export type LocationMap = {
+/*export type LocationMap = {
   id: string;
   location: Location;
-};
+};*/
 
 export type Offer = {
   id: string;
