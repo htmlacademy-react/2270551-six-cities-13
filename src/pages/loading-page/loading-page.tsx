@@ -1,7 +1,9 @@
-function LoadingPage(): JSX.Element {
+import './style-loading-page.css';
+
+export default function LoadingPage(): JSX.Element {
   return (
-    <p>Loading ...</p>
+    <div className='loading-page'>
+      <p className='text'>Loading ...</p>
+    </div>
   );
 }
-
-export default LoadingPage;
