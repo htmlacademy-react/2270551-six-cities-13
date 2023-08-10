@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import './404-style.css';
 import {Helmet} from 'react-helmet-async';
 
 function NotFound(): JSX.Element {
