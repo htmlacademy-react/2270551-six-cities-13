@@ -4,6 +4,7 @@ import {HelmetProvider} from 'react-helmet-async';
 import {Routes, Route} from 'react-router-dom';
 import {useAppSelector} from '../../hooks';
 import {AppRoute, AuthorizationStatus} from '../../const';
+//import Layout from '../layout/layout';
 import {DetailedOffer} from '../../types/offer-types';
 import {Review} from '../../types/review-types';
 import browserHistory from '../../browser-history';
