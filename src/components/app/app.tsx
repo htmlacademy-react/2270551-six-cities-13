@@ -4,9 +4,6 @@ import {HelmetProvider} from 'react-helmet-async';
 import {Routes, Route} from 'react-router-dom';
 import {useAppSelector} from '../../hooks';
 import {AppRoute, AuthorizationStatus} from '../../const';
-//import Layout from '../layout/layout';
-import {DetailedOffer} from '../../types/offer-types';
-import {Review} from '../../types/review-types';
 import browserHistory from '../../browser-history';
 import MainPage from '../../pages/main/main';
 import LoginPage from '../../pages/login-page/login-page';
@@ -17,17 +14,12 @@ import LoadingPage from '../../pages/loading-page/loading-page';
 import PrivateRoute from '../private-route/private-route';
 import HistoryRouter from '../history-router/history-router';
 
-type AppProps = {
-  detailedOffers: DetailedOffer[];
-  reviews: Review[];
-}
-
-function App({detailedOffers, reviews}: AppProps): JSX.Element {
+function App(): JSX.Element {
   const offers = useAppSelector((state) => state.offers);
-  const isDataLoading = useAppSelector((state) => state.loadingStatus);
+  const isOffersDataLoading = useAppSelector((state) => state.isOffersDataLoading);
   const isAuthorizationStatus = useAppSelector((state) => state.authorizationStatus);
 
-  if (isAuthorizationStatus === AuthorizationStatus.Unknown || isDataLoading) {
+  if (isAuthorizationStatus === AuthorizationStatus.Unknown || isOffersDataLoading) {
     return (
       <LoadingPage />
     );
@@ -39,18 +31,18 @@ function App({detailedOffers, reviews}: AppProps): JSX.Element {
         <Routes>
           <Route
             path={AppRoute.Main}
-            element={
-              <MainPage />
-            }
+            element={<MainPage />}
           />
           <Route
             path={AppRoute.Login}
             element={<LoginPage />}
           />
-          <Route
-            path={`${AppRoute.Offer}/:id`}
-            element={<OfferPage offers={offers} detailedOffers={detailedOffers} reviews={reviews}/>}
-          />
+          <Route path={AppRoute.Offer}>
+            <Route
+              path=':id'
+              element={<OfferPage />}
+            />
+          </Route>
           <Route
             path={AppRoute.Favorites}
             element={
