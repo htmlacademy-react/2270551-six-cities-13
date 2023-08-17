@@ -22,15 +22,12 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-export enum NameSpace {
-  App = 'APP',
-  Data = 'DATA',
-  User = 'USER',
-  Comment = 'COMMENT',
+export enum RequestStatus {
+  Unsent = 'UNSENT',
+  Pending = 'PENDING',
+  Success = 'SUCCESS',
+  Error = 'ERROR'
 }
-
-export const MAX_RATING = 5;
-export const MULTIPLIER_FOR_RATING = 100 / MAX_RATING;
 
 export enum CityName {
   Paris = 'Paris',
