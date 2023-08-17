@@ -4,8 +4,6 @@ type User = {
   isPro: boolean;
 };
 
-//export type Reviews = Review[];
-
 export type Review = {
   id: string;
   date: string;
@@ -14,8 +12,8 @@ export type Review = {
   rating: number;
 }
 
-/*export type NewReview = {
-  hotelId: number;
+export type ReviewData = {
   comment: string;
   rating: number;
-};*/
+}
+

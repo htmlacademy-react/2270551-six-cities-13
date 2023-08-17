@@ -22,11 +22,11 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-export enum NameSpace {
-  App = 'APP',
-  Data = 'DATA',
-  User = 'USER',
-  Comment = 'COMMENT',
+export enum RequestStatus {
+  Unsent = 'UNSENT',
+  Pending = 'PENDING',
+  Success = 'SUCCESS',
+  Error = 'ERROR'
 }
 
 export enum CityName {
