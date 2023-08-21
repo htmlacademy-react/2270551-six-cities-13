@@ -1,27 +1,28 @@
-/*Компонент для отрисовки главной страницы*/
-
 import {HelmetProvider} from 'react-helmet-async';
 import {Routes, Route} from 'react-router-dom';
 import {useAppSelector} from '../../hooks';
-import {AppRoute, AuthorizationStatus} from '../../const';
+import {AppRoute, AuthorizationStatus, RequestStatus} from '../../const';
+import {getAuthorizationStatus} from '../../store/user-data/selectors';
+import {getOffers, getOffersFetchingStatus} from '../../store/offers-data/selectors';
 import browserHistory from '../../browser-history';
+import Loader from '../../pages/loading-page/loading-page';
 import MainPage from '../../pages/main/main';
 import LoginPage from '../../pages/login-page/login-page';
 import OfferPage from '../../pages/offer/offer';
 import FavoritesPage from '../../pages/favorites-page/favorites-page';
 import NotFoundPage from '../../pages/404/404';
-import LoadingPage from '../../pages/loading-page/loading-page';
 import PrivateRoute from '../private-route/private-route';
 import HistoryRouter from '../history-router/history-router';
 
 function App(): JSX.Element {
-  const offers = useAppSelector((state) => state.offers);
-  const isOffersDataLoading = useAppSelector((state) => state.isOffersDataLoading);
-  const isAuthorizationStatus = useAppSelector((state) => state.authorizationStatus);
+  const offers = useAppSelector(getOffers);
+  const isAuthorizationStatus = useAppSelector(getAuthorizationStatus);
+  const isOffersDataLoading = useAppSelector(getOffersFetchingStatus);
 
-  if (isAuthorizationStatus === AuthorizationStatus.Unknown || isOffersDataLoading) {
+  if (isAuthorizationStatus === AuthorizationStatus.Unknown ||
+      isOffersDataLoading === RequestStatus.Pending) {
     return (
-      <LoadingPage />
+      <Loader />
     );
   }
 

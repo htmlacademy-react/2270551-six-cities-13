@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+/*import { Link } from 'react-router-dom';
 
 export default function Logo(): JSX.Element {
   return (
@@ -14,4 +14,4 @@ export default function Logo(): JSX.Element {
       </Link>
     </div>
   );
-}
+}*/

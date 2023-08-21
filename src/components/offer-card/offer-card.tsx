@@ -56,4 +56,3 @@ function OfferCard({offer, handleOfferCardHover, handleOfferCardLeave, type}: Of
 
 export default OfferCard;
 
-
