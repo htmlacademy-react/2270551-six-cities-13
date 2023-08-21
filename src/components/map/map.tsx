@@ -65,4 +65,3 @@ function Map({city, points, selectedPoint}: MapProps): JSX.Element {
 }
 
 export default Map;
-
