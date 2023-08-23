@@ -1,4 +1,4 @@
-/*function FavoritesEmpty(): JSX.Element {
+function FavoritesEmpty(): JSX.Element {
 
   return (
     <div className="page__favorites-container container">
@@ -13,4 +13,5 @@
   );
 }
 
-export default FavoritesEmpty;*/
+export default FavoritesEmpty;
+
