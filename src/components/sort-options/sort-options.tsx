@@ -69,4 +69,3 @@ function PlaceSort({onChange}: PlaceSortProps) {
 }
 
 export default PlaceSort;
-
