@@ -1,4 +1,3 @@
-/*Константы*/
 import {City} from './types/offer-types';
 
 export enum AppRoute {
@@ -6,6 +5,7 @@ export enum AppRoute {
   Login = '/login',
   Offer = '/offer',
   Favorites = '/favorites',
+  NotFound = '/not-found',
 }
 
 export enum APIRoute{
@@ -26,7 +26,16 @@ export enum RequestStatus {
   Unsent = 'UNSENT',
   Pending = 'PENDING',
   Success = 'SUCCESS',
-  Error = 'ERROR'
+  Error = 'ERROR',
+}
+
+export enum NameSpace {
+  User = 'USER',
+  Offers = 'OFFERS',
+  Favorites = 'FAVORITES',
+  Offer = 'OFFER',
+  Reviews = 'REVIEWS',
+  NearPlaces = 'NEAR_PLACES',
 }
 
 export enum CityName {
@@ -88,5 +97,3 @@ export const CityMap: Record<CityName, City> = {
     }
   },
 } as const;
-
-export const AUTH_TOKEN_KEY_NAME = 'six-cities-token';
