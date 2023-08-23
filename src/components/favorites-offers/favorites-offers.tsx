@@ -1,4 +1,4 @@
-/*import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {Offer} from '../../types/offer-types';
 import {OfferCardMemo as OfferCard} from '../offer-card/offer-card';
 
@@ -46,4 +46,5 @@ function FavoritesOffers({favorites}: FavoritesOffersProps): JSX.Element {
   );
 }
 
-export default FavoritesOffers;*/
+export default FavoritesOffers;
+
