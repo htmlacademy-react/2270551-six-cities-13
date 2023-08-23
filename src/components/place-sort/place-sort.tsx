@@ -1,4 +1,4 @@
-/*import {memo, useState} from 'react';
+import {memo, useState} from 'react';
 import classNames from 'classnames';
 
 const filtersList = [
@@ -68,4 +68,5 @@ function PlaceSort({onChange}: PlaceSortProps): JSX.Element {
   );
 }
 
-export const PlaceSortMemo = memo(PlaceSort);*/
+export const PlaceSortMemo = memo(PlaceSort);
+
