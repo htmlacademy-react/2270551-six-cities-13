@@ -1,4 +1,4 @@
-/*import {useAppSelector} from '../../hooks';
+import {useAppSelector} from '../../hooks';
 import {getActiveCity} from '../../store/offers-data/offers-data.selectors';
 
 function MainEmpty(): JSX.Element {
@@ -21,4 +21,5 @@ function MainEmpty(): JSX.Element {
   );
 }
 
-export default MainEmpty;*/
+export default MainEmpty;
+
