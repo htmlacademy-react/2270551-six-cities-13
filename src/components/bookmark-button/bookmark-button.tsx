@@ -1,4 +1,4 @@
-/*import {useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {AppRoute, AuthorizationStatus} from '../../const';
 import {Offer} from '../../types/offer-types';
@@ -48,4 +48,4 @@ function BookmarkButton({id, isFavorite, isDetailed, onClick}: BookmarkButtonPro
   );
 }
 
-export default BookmarkButton;*/
+export default BookmarkButton;
