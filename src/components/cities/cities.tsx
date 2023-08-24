@@ -1,4 +1,4 @@
-/*import {useState, useCallback, useMemo} from 'react';
+import {useState, useCallback, useMemo} from 'react';
 import {sorting} from '../../utils';
 import {City, Offer} from '../../types/offer-types';
 import {PlaceSortMemo as PlaceSort} from '../place-sort/place-sort';
@@ -56,4 +56,5 @@ function Cities({offers, activeCity}: CitiesProps): JSX.Element {
   );
 }
 
-export default Cities;*/
+export default Cities;
+
