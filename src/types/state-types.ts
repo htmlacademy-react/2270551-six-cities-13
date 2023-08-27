@@ -40,3 +40,9 @@ export type FavoritesData = {
 export type State = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
+
+export type ActiveOfferConfig = {
+  id?: string;
+  isFavorite?: boolean;
+};
+
