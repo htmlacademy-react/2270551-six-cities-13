@@ -3,23 +3,17 @@ import {Offer} from '../../types/offer-types';
 import {OfferCardMemo as OfferCard} from '../offer-card/offer-card';
 
 type FavoritesOffersProps = {
-  favorites: Offer[];
+  offers: Array<[string, Offer[]]>;
 }
 
-function FavoritesOffers({favorites}: FavoritesOffersProps): JSX.Element {
-  const citiesSet = new Set<string>();
-  const uniqueCities = Array.from(citiesSet);
-
-  favorites.forEach((favorite) => {
-    citiesSet.add(favorite.city.name);
-  });
+function FavoritesOffers({offers}: FavoritesOffersProps): JSX.Element {
 
   return (
     <div className="page__favorites-container container">
       <section className="favorites">
         <h1 className="favorites__title">Saved listing</h1>
         <ul className="favorites__list">
-          {uniqueCities.map((city, i) => {
+          {offers.map(([city, offersList], i) => {
             const keyValue = `${city}-${i}`;
             return (
               <li className="favorites__locations-items" key={keyValue}>
@@ -31,11 +25,9 @@ function FavoritesOffers({favorites}: FavoritesOffersProps): JSX.Element {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  {favorites
-                    .filter((offer) => offer.city.name === city)
-                    .map((offer) => (
-                      <OfferCard type='favorites' key={offer.id} offer={offer} onOfferCardHover={() => undefined}/>
-                    ))}
+                  {offersList.map((offer) => (
+                    <OfferCard key={offer.id} offer={offer} type='favorites'/>)
+                  )}
                 </div>
               </li>
             );
@@ -47,4 +39,3 @@ function FavoritesOffers({favorites}: FavoritesOffersProps): JSX.Element {
 }
 
 export default FavoritesOffers;
-

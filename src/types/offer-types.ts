@@ -36,3 +36,17 @@ export type DetailOffer = Offer & {
   images: string[];
   maxAdults: number;
 }
+
+//для теста
+export type OffersConfig = {
+  id?: string;
+  location?: Location;
+  isFavorite?: boolean;
+  isOneIdLiteral?: boolean;
+};
+export type ActiveOfferConfig = {
+  id?: string;
+  isFavorite?: boolean;
+};
+
+
