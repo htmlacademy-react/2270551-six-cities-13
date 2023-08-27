@@ -5,10 +5,9 @@ import {useAppDispatch, useAppSelector} from '../../hooks';
 import {AuthorizationStatus, RequestStatus} from '../../const';
 import {fetchOffersAction, fetchFavoritesAction} from '../../store/api-action';
 import {getAuthorizationStatus} from '../../store/user-data/user-data.selectors';
-import {getOffersFetchingStatus} from '../../store/offers-data/offers-data.selectors';
-import {getOffers, getActiveCity} from '../../store/offers-data/offers-data.selectors';
+import {getOffers, getOffersFetchingStatus, getActiveCity} from '../../store/offers-data/offers-data.selectors';
 import {CitiesListMemo as CitiesList} from '../../components/cities-list/cities-list';
-import HeaderFull from '../../components/header/header-full';
+import Header from '../../components/header/header';
 import MainEmpty from '../../components/main-empty/main-empty';
 import Cities from '../../components/cities/cities';
 import Loader from '../../pages/loading-page/loading-page';
@@ -37,14 +36,14 @@ function MainPage(): JSX.Element {
 
   return (
     <div className="page page--gray page--main">
-      <HeaderFull/>
+      <Header/>
       <main
         className={classNames({
           'page__main page__main--index': true,
           'page__main--index-empty': isEmpty,
         })}
       >
-        <CitiesList activeCity={activeCity.name}/>
+        <CitiesList currentCity={activeCity.name}/>
         {isEmpty ? <MainEmpty/> : <Cities offers={offers} activeCity={activeCity}/>}
       </main>
     </div>
