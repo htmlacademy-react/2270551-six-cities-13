@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+/*import {Link} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {AppRoute, AuthorizationStatus} from '../../const';
 import {logoutAction} from '../../store/api-action';
@@ -55,4 +55,4 @@ function HeaderFull(): JSX.Element {
   );
 }
 
-export default HeaderFull;
+export default HeaderFull;*/

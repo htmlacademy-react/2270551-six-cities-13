@@ -1,4 +1,4 @@
-import {useAppSelector} from '../../hooks';
+/*import {useAppSelector} from '../../hooks';
 import {getActiveCity} from '../../store/offers-data/offers-data.selectors';
 import CitiesList from '../../components/cities-list/cities-list';
 
@@ -32,4 +32,5 @@ const MainEmptyPage = () => {
   );
 };
 
-export default MainEmptyPage;
+export default MainEmptyPage;*/
+

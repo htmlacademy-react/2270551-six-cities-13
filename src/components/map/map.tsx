@@ -7,23 +7,23 @@ import 'leaflet/dist/leaflet.css';
 type MapProps = {
   city: City;
   points: Offer[];
-  detailedOffer: DetailOffer | undefined;
   selectedPoint: Offer | undefined;
+  detailedOffer: DetailOffer | undefined;
 }
 
 const defaultCustomIcon = new Icon({
   iconUrl: '/img/pin.svg',
-  iconSize: [40, 40],
-  iconAnchor: [20, 40]
+  iconSize: [27, 39],
+  iconAnchor: [13, 39],
 });
 
 const currentCustomIcon = new Icon({
   iconUrl: '/img/pin-active.svg',
-  iconSize: [40, 40],
-  iconAnchor: [20, 40]
+  iconSize: [27, 39],
+  iconAnchor: [13, 39],
 });
 
-function Map({city, points, detailedOffer, selectedPoint}: MapProps): JSX.Element {
+function Map({city, points, selectedPoint, detailedOffer}: MapProps): JSX.Element {
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
 
@@ -34,24 +34,22 @@ function Map({city, points, detailedOffer, selectedPoint}: MapProps): JSX.Elemen
       points.forEach((point) => {
         const marker = new Marker({
           lat: point.location.latitude,
-          lng: point.location.longitude
+          lng: point.location.longitude,
         });
+
         marker
           .setIcon(
-            !detailedOffer && selectedPoint && point.id === selectedPoint.id
+            selectedPoint && point.id === selectedPoint.id
               ? currentCustomIcon
               : defaultCustomIcon
           )
           .addTo(markerLayer);
-      });
 
-      if (detailedOffer) {
-        const marker = new Marker({
-          lat: detailedOffer.location.latitude,
-          lng: detailedOffer.location.longitude,
-        });
-        marker.setIcon(currentCustomIcon).addTo(markerLayer);
-      }
+        if (point.location.latitude === detailedOffer?.location.latitude &&
+        point.location.longitude === detailedOffer?.location.longitude) {
+          marker.setIcon(currentCustomIcon);
+        }
+      });
 
       map.flyTo(
         [
@@ -65,7 +63,7 @@ function Map({city, points, detailedOffer, selectedPoint}: MapProps): JSX.Elemen
         map.removeLayer(markerLayer);
       };
     }
-  }, [map, points, detailedOffer, selectedPoint, city]);
+  }, [map, points, selectedPoint, detailedOffer, city]);
 
   return (
     <div style={{height: '100%', minHeight: '500px', width: '100%', maxWidth: '1144px', margin: '0 auto'}} ref={mapRef}></div>
