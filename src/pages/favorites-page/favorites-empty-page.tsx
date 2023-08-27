@@ -1,4 +1,4 @@
-const FavoritesEmptyPage = () => {
+/*const FavoritesEmptyPage = () => {
 
   <main className="page__main page__main--favorites page__main--favorites-empty">
     <div className="page__favorites-container container">
@@ -13,4 +13,4 @@ const FavoritesEmptyPage = () => {
   </main>;
 };
 
-export default FavoritesEmptyPage;
+export default FavoritesEmptyPage;*/
