@@ -102,3 +102,12 @@ export const CityMap: Record<CityName, City> = {
     },
   },
 } as const;
+
+//для теста
+export const Status = {
+  Idle: 'idle',
+  Loading: 'loading',
+  Success: 'success',
+  Error: 'error',
+} as const;
+
