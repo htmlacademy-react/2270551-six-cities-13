@@ -1,9 +1,10 @@
-import {useState, useCallback, useMemo} from 'react';
+import {useState, useMemo, useCallback} from 'react';
 import {sorting} from '../../utils';
 import {City, Offer} from '../../types/offer-types';
 import {PlaceSortMemo as PlaceSort} from '../place-sort/place-sort';
 import {OffersListMemo as OffersList} from '../offer-list/offer-list';
 import Map from '../map/map';
+import MainEmpty from '../main-empty/main-empty';
 
 type CitiesProps = {
   offers: Offer[];
@@ -38,23 +39,24 @@ function Cities({offers, activeCity}: CitiesProps): JSX.Element {
   }, [sortOffersByCity]);
 
   return (
-    <div className="cities">
-      <div className="cities__places-container container">
-        <section className="cities__places places">
-          <h2 className="visually-hidden">Places</h2>
-          <b className="places__found">{sortOffersByCity.length} place{sortOffersByCity.length > 1 && 's'} to stay in {activeCity.name}</b>
-          <PlaceSort onChange={handleChangeSort}/>
-          <OffersList type='cities' offers={sortOffersByCategory} onOfferCardHover={handleOfferCardHover}/>
-        </section>
-        <div className="cities__right-section">
-          <section className="cities__map map">
-            <Map city={activeCity} points={sortOffersByCity} detailedOffer={undefined} selectedPoint={selectedPoint}/>
+    sortOffersByCity.length ?
+      <div className="cities">
+        <div className="cities__places-container container">
+          <section className="cities__places places">
+            <h2 className="visually-hidden">Places</h2>
+            <b className="places__found">{sortOffersByCity.length} place{sortOffersByCity.length > 1 && 's'} to stay in {activeCity.name}</b>
+            <PlaceSort onChange={handleChangeSort}/>
+            <OffersList offers={sortOffersByCategory} type='cities' onOfferCardHover={handleOfferCardHover}/>
           </section>
+          <div className="cities__right-section">
+            <section className="cities__map map">
+              <Map city={activeCity} points={sortOffersByCity} detailedOffer={undefined} selectedPoint={selectedPoint}/>
+            </section>
+          </div>
         </div>
       </div>
-    </div>
+      : <MainEmpty/>
   );
 }
 
 export default Cities;
-
