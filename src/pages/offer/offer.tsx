@@ -1,6 +1,6 @@
 /*Компонент*/
 
-import {useState, useEffect} from 'react';
+import {useState, useCallback, useEffect} from 'react';
 import {Helmet} from 'react-helmet-async';
 import {useParams} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from '../../hooks';
@@ -14,9 +14,9 @@ import {getOffersNearby} from '../../store/nearby-data/nearby-data.selectors';
 import {OffersListMemo as OffersList} from '../../components/offer-list/offer-list';
 import Map from '../../components/map/map';
 import Loader from '../../pages/loading-page/loading-page';
-import HeaderFull from '../../components/header/header-full';
+import Header from '../../components/header/header';
 import ReviewList from '../../components/review-list/review-list';
-import ReviewSendForm from '../../components/review-form/review-form';
+import ReviewForm from '../../components/review-form/review-form';
 import OfferGallery from '../../components/offer-gallery/offer-gallery';
 import DetailOffer from '../../components/detailer-offer/detailer-offer';
 
@@ -39,7 +39,7 @@ function OfferPage(): JSX.Element {
     undefined
   );
 
-  const handleOfferCardHover = (id: string | undefined) => {
+  const handleOfferCardHover = useCallback((id: string | undefined) => {
     if (!id) {
       setSelectedPoint(undefined);
     }
@@ -47,7 +47,7 @@ function OfferPage(): JSX.Element {
     const currentPoint = offersNearby.find((offerNearby) => offerNearby.id === id);
 
     setSelectedPoint(currentPoint);
-  };
+  }, [offersNearby]);
 
   useEffect(() => {
     if (params.id) {
@@ -73,7 +73,7 @@ function OfferPage(): JSX.Element {
       <Helmet>
         <title>6 cities: Offer</title>
       </Helmet>
-      <HeaderFull/>
+      <Header/>
       {isDetailedOfferDataLoading === RequestStatus.Success && offer &&
       <main className="page__main page__main--offer">
         <section className="offer">
@@ -84,7 +84,7 @@ function OfferPage(): JSX.Element {
               <section className="offer__reviews reviews">
                 <ReviewList reviews={reviews}/>
                 {isAuthorizationStatus === AuthorizationStatus.Auth &&
-                <ReviewSendForm id={params.id as string}/>}
+                <ReviewForm id={params.id as string}/>}
               </section>
             </div>
           </div>
@@ -95,7 +95,7 @@ function OfferPage(): JSX.Element {
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <OffersList type='near-places' offers={threeOffersNearby} onOfferCardHover={handleOfferCardHover}/>
+            <OffersList offers={threeOffersNearby} type='near-places' onOfferCardHover={handleOfferCardHover}/>
           </section>
         </div>
       </main>}
