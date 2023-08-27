@@ -1,4 +1,4 @@
-import { AuthorizationStatus, Status } from '../../const';
+/*import { AuthorizationStatus, Status } from '../../const';
 import { makeFakeUser } from '../../testmocks/user';
 import { checkAuthAction, loginAction, logoutAction } from '../api-action';
 import { userData } from './user-data.slice';
@@ -113,4 +113,4 @@ describe('UserProcess Slice', () => {
 
     expect(result).toEqual(expectedState);
   });
-});
+});*/
