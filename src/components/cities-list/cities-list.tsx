@@ -44,5 +44,5 @@ function CitiesList({currentCity}: CitiesListProps): JSX.Element {
     </>
   );
 }
-
+export default CitiesList;
 export const CitiesListMemo = memo(CitiesList);

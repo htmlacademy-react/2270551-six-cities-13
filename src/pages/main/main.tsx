@@ -24,6 +24,9 @@ function MainPage(): JSX.Element {
 
   useEffect(() => {
     dispatch(fetchOffersAction());
+  }, [dispatch]);
+
+  useEffect(() => {
     dispatch(fetchFavoritesAction());
   }, [dispatch]);
 
