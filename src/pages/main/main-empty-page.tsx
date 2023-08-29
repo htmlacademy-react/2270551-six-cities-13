@@ -11,7 +11,7 @@ const MainEmptyPage = () => {
       <div className="tabs">
         <section className="locations container">
           <CitiesList
-            activeCity={activeCity.name}
+            currentCity={activeCity.name}
           />
         </section>
       </div>
