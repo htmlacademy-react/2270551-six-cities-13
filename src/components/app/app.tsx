@@ -15,7 +15,7 @@ import HistoryRouter from '../history-router/history-router';
 import browserHistory from '../../browser-history';
 
 function App(): JSX.Element {
-  const isAuthorizationStatus = useAppSelector(getAuthorizationStatus);
+  //const isAuthorizationStatus = useAppSelector(getAuthorizationStatus);
 
   return (
     <HelmetProvider>
@@ -38,7 +38,7 @@ function App(): JSX.Element {
           <Route
             path={AppRoute.Favorites}
             element={
-              <PrivateRoute authorizationStatus={isAuthorizationStatus}>
+              <PrivateRoute authorizationStatus={useAppSelector(getAuthorizationStatus)}>
                 <FavoritesPage/>
               </PrivateRoute>
             }
