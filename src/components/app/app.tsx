@@ -18,8 +18,7 @@ import browserHistory from '../../browser-history';
 import LoadingPage from '../../pages/loading-page/loading-page';
 
 function App(): JSX.Element {
-  //const isAuthorizationStatus = useAppSelector(getAuthorizationStatus);
-  //store.dispatch(checkAuthAction());
+
   const dispatch = useAppDispatch();
 
   const isAuthorizationStatus = useAppSelector(getAuthorizationStatus);
