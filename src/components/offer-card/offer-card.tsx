@@ -17,12 +17,16 @@ function OfferCard({offer, type, onOfferCardHover}: OfferCardProps): JSX.Element
   const [activeFavorite, setActiveFavorite] = useState(offer.isFavorite);
 
   const handleOfferCardHover = useCallback(() => {
-    onOfferCardHover?.(offer.id);
-  }, [offer.id , onOfferCardHover]);
+    if (type !== 'near-places') {
+      onOfferCardHover?.(offer.id);
+    }
+  }, [offer.id , onOfferCardHover, type]);
 
   const handleOfferCardLeave = useCallback(() => {
-    onOfferCardHover?.(undefined);
-  }, [onOfferCardHover]);
+    if (type !== 'near-places') {
+      onOfferCardHover?.(undefined);
+    }
+  }, [onOfferCardHover, type]);
 
   return (
     <article className={classNames({
